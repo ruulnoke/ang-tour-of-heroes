@@ -1,0 +1,10 @@
+<!--HTML-templaatti; kaikki mitä käyttäjä näkee Hero-komponentista-->
+
+<!--UpperCasePipe: vie putken vasemman puolen arvon palautteen oikean puolen syötteeksi;
+  muuttuu isoilla kirjaimilla kirjoitetuksi  -->
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>
