@@ -1,17 +1,24 @@
-// luokkaosa, sovelluslogiikka, TypeScript
+// Luokkaosa: sovelluslogiikka, TypeScript
 
 import { Component } from '@angular/core';
+// koska heroes-komponentti nyt standalone, täytyy erikseen tuoda ForsModule ja UpperCasePipe
+import { NgFor, NgIf, UpperCasePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 @Component({
+  standalone: true,
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
+  imports: [FormsModule, NgFor, NgIf, UpperCasePipe],
 })
 export class HeroesComponent {
-  // TS-piirre: oma tietotyyppi
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
+  heroes = HEROES;
+  selectedHero?: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }

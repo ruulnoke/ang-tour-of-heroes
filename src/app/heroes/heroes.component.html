@@ -1,10 +1,31 @@
 <!--HTML-templaatti; kaikki mitä käyttäjä näkee Hero-komponentista-->
 
-<!--UpperCasePipe: vie putken vasemman puolen arvon palautteen oikean puolen syötteeksi;
-  muuttuu isoilla kirjaimilla kirjoitetuksi  -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div>
-  <label for="name">Hero name: </label>
-  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <!--*ngFor (structural directive): toistaa isäntäelementin (li) 
+        jokaista listan (heroes) elementtiä (hero) kohti -->
+  <li *ngFor="let hero of heroes">
+    <!--Event binding: kuuntelee painikkeen klikkauksia
+    (click): kun nappia painetaan, ajetaan onSelect(hero)-->
+
+    <!--Class binding: CSS-tyyli sidotaan ehtoon (jos true, tyyli tulee voimaan) -->
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<!--*ngIf (structural directive): jos listasta on valittu sankari (painamalla nappia),
+    tämä div näytetään-->
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <!--Two-way binding: templaatissa oleva data (useimmiten lomakkeella) sidotaan kaksisuuntaisesti
+    luokassa olevaan muuttujaan: [(ngModel)]="muuttuja"-->
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
 </div>

@@ -9,8 +9,9 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [AppComponent],
+  // koska HeroesComponent muutettiin standaloneksi, sitä ei enää declaroida, vaan importataan
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HeroesComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
