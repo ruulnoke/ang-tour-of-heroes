@@ -8,7 +8,6 @@
   <li *ngFor="let hero of heroes">
     <!--Event binding: kuuntelee painikkeen klikkauksia
     (click): kun nappia painetaan, ajetaan onSelect(hero)-->
-
     <!--Class binding: CSS-tyyli sidotaan ehtoon (jos true, tyyli tulee voimaan) -->
     <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
       <span class="badge">{{hero.id}}</span>
@@ -17,15 +16,5 @@
   </li>
 </ul>
 
-<!--*ngIf (structural directive): jos listasta on valittu sankari (painamalla nappia),
-    tämä div näytetään-->
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div>id: {{selectedHero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <!--Two-way binding: templaatissa oleva data (useimmiten lomakkeella) sidotaan kaksisuuntaisesti
-    luokassa olevaan muuttujaan: [(ngModel)]="muuttuja"-->
-    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-</div>
+<!--property binding: yksisuuntainen sidos, annetaan arvo DOM-ominaisuudelle-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

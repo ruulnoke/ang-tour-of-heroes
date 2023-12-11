@@ -7,11 +7,18 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [AppComponent],
   // koska HeroesComponent muutettiin standaloneksi, sitä ei enää declaroida, vaan importataan
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HeroesComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HeroesComponent,
+    HeroDetailComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
