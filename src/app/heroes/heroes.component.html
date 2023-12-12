@@ -6,15 +6,8 @@
   <!--*ngFor (structural directive): toistaa isäntäelementin (li) 
         jokaista listan (heroes) elementtiä (hero) kohti -->
   <li *ngFor="let hero of heroes">
-    <!--Event binding: kuuntelee painikkeen klikkauksia
-    (click): kun nappia painetaan, ajetaan onSelect(hero)-->
-    <!--Class binding: CSS-tyyli sidotaan ehtoon (jos true, tyyli tulee voimaan) -->
-    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-      <span class="badge">{{hero.id}}</span>
-      <span class="name">{{hero.name}}</span>
-    </button>
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
-
-<!--property binding: yksisuuntainen sidos, annetaan arvo DOM-ominaisuudelle-->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>

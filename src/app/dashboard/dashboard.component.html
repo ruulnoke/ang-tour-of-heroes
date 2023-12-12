@@ -1,0 +1,8 @@
+<!--Näyttää valitut sankarit (listan 2., 3., 4. ja 5.) omina nappuloinaan-->
+
+<h2>Top Heroes</h2>
+<div class="heroes-menu">
+  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+    {{hero.name}}
+  </a>
+</div>

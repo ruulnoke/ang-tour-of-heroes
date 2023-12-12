@@ -5,5 +5,12 @@
   {{muuttuja}}-merkintään templaatissa. Keino lisätä dynaamista sisältöä
   staattisen html:n sekaan. -->
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
+<nav>
+  <!--RouterLink:  tekee elementistä linkin, joka initioi navigaation
+    -> avaa reititetyn komponentin sivulle sijainnissa <router-outlet> -->
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<!--RouterOutlet toimii placeholderina - se saa sisältönsä reitittimen tämänhetkisen tilan mukaan-->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
