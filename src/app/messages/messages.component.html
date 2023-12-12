@@ -1,0 +1,12 @@
+<!--viestien templaatti-->
+
+<!--*ngIf: näyttää viestialueen vain jos on näytettäviä viestejä-->
+<div *ngIf="messageService.messages.length">
+
+  <h2>Messages</h2>
+  <!--event binding: kun nappia painetaan, viestit tyhjentyvät-->
+  <button type="button" class="clear" (click)="messageService.clear()">Clear messages</button>
+  <!--*ngFor: esittää listan viestit yksitellen div-elementeissä-->
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>
