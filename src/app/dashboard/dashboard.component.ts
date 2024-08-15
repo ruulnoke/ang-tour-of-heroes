@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
     this.getHeroes();
   }
 
+  // käytetään HeroServicen getHeroes-metodia
   getHeroes(): void {
     this.heroService
       .getHeroes()
